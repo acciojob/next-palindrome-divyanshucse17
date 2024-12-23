@@ -1,16 +1,60 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Palindrome Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
 
+        h1 {
+            color: #333;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .result {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+
+    <h1>Next Palindrome Finder</h1>
+    <button onclick="findNextPalindrome()">Find Next Palindrome</button>
+
+    <script>
+        // Function to check if a number is a palindrome
+        function isPalindrome(num) {
+            let numStr = num.toString();
+            return numStr === numStr.split('').reverse().join('');
+        }
+
+        // Function to find the next palindrome
+        function nextPalindrome(num) {
+            let nextNum = num + 1;
+            while (!isPalindrome(nextNum)) {
+                nextNum++;
+            }
+            return nextNum;
+        }
+
+        // Function to trigger the palindrome search
+        function findNextPalindrome() {
+            let num = parseInt(prompt("Enter a number:"));
+            let result = nextPalindrome(num);
+            alert("The next palindrome is: " + result);
+        }
+    </script>
 
 </body>
-
 </html>
